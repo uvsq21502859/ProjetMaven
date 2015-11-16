@@ -2,20 +2,20 @@ package fr.uvsq.coo.ex3_2;
 
 import static org.junit.Assert.*;
 
-//import org.junit.Before;
+import org.junit.Before;
 import org.junit.Test;
 
 
 public class BowlingGameTest {
 	
-	//@Before
+	
 	private Game g;
     
-    @Test
-	protected void setUp() throws Exception {
+    @Before
+	public void setUp() throws Exception {
 		 g = new Game();
 		}
-	@Test
+	
 	private void rollMany(int n, int pins) {
 		for (int i = 0; i < n; i++)
 		g.roll(pins);
@@ -42,6 +42,7 @@ public class BowlingGameTest {
 			rollMany(17,0);
 			assertEquals(16,g.score());
 			}
+	
 
 
 }
