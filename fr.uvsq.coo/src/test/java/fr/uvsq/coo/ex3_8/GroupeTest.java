@@ -1,7 +1,5 @@
 package fr.uvsq.coo.ex3_8;
 
-import static org.junit.Assert.*;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
