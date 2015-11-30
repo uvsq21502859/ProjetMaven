@@ -1,7 +1,15 @@
 package fr.uvsq.coo.ex3_8;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-public class Personnel extends Racine {
+public class Personnel extends Racine implements Serializable {
      
     private String nom = new String();
     private String prenom = new String();
@@ -9,6 +17,7 @@ public class Personnel extends Racine {
     private java.time.LocalDateTime dateNaissance;
     private String telephone = new String();
 	
+	public String getId(){return this.nom;}
 	
     //debut builder
 	public static class Builder{
@@ -79,5 +88,46 @@ public class Personnel extends Racine {
 		System.out.println("Fonction: "+this.fonction);
 		System.out.println("Telephone: "+this.telephone);
 			}
+	
+	// ecrire, sauvegarder les données
+    public void ecrireObjet()  
+    {
+  	  try(ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream
+                (new FileOutputStream(
+             		   "/home/user/eclipse-java-mars-workspace/ProjetMaven/fr.uvsq.coo/src/main/java/fr/uvsq/coo/ex3_8/dataFile")))){
+		
+		
+			out.writeObject(this.nom);
+			out.writeObject(this.prenom);
+			out.writeObject(this.dateNaissance);
+			out.writeObject(this.fonction);
+			out.writeObject(this.telephone);
+			}
+		
+		catch(IOException e){}
+	   }
+    
+	  //Lire les données stockées
+	  public void lireObjet() throws ClassNotFoundException{
+	     try(ObjectInputStream in = new ObjectInputStream(new BufferedInputStream
+			           (new FileInputStream(
+			           "/home/user/eclipse-java-mars-workspace/ProjetMaven/fr.uvsq.coo/src/main/java/fr/uvsq/coo/ex3_8/dataFile")))){
+			
+	    	
+			try{ 
+				while(true){
+					String nom= (String)in.readObject();
+					String preon= (String)in.readObject();
+					java.time.LocalDateTime date= (java.time.LocalDateTime)in.readObject();
+					String fonct= (String)in.readObject();
+					String tel= (String)in.readObject();}
+				}
+			catch(IOException e){}
+			
+			}
+					
+		catch(IOException e){}
+			}
+	     
 	
 }

@@ -1,12 +1,14 @@
 package fr.uvsq.coo.ex3_8;
 
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
-public class Groupe extends Racine    {
+public class Groupe extends Racine implements Serializable    {
 
     private String nom = new String();	
-	List<Racine> liste = new ArrayList<Racine>();
+	public List<Racine> liste = new ArrayList<Racine>();
 	
 	@Override
 	public void afficher(){
@@ -20,8 +22,8 @@ public class Groupe extends Racine    {
 	}
 	
 	/*Affichage du nom de groupe*/
-	public void afficherNom()
-	{System.out.println(nom);}
+	public String getNom()
+	{return nom;}
 	
 	/*Ajouter un element au groupe*/
 	public void add(Racine element){
@@ -48,16 +50,47 @@ public class Groupe extends Racine    {
 			liste.get(i).afficher();
 		else if(liste.get(i) instanceof Groupe)
 			{Groupe temp =(Groupe)liste.get(i);
-			 temp.afficherNom();
+			 System.out.println(temp.getNom());
 			 parcours=temp.liste;
 			 for(int j=0;i<parcours.size();i++)
 				 parcours.get(j).afficher();
-				 
-						}
-    	
-		}
-    	
-    }
+				 					}    	
+		       }
+    	                             }
+      // ecrire, sauvegarder les données
+      public void ecrireObjet()  
+      {
+    	  try(ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream
+                  (new FileOutputStream(
+               		   "/home/user/eclipse-java-mars-workspace/ProjetMaven/fr.uvsq.coo/src/main/java/fr/uvsq/coo/ex3_8/dataFile")))){
+		
+		
+			for(int i=0;i<liste.size();i++)
+				out.writeObject(liste.get(i));
+			}
+		
+		catch(IOException e){}
+	   }
+      
+	  //Lire les données stockées
+	  public void lireObjet() throws ClassNotFoundException{
+	     try(ObjectInputStream in = new ObjectInputStream(new BufferedInputStream
+			           (new FileInputStream(
+			           "/home/user/eclipse-java-mars-workspace/ProjetMaven/fr.uvsq.coo/src/main/java/fr/uvsq/coo/ex3_8/dataFile")))){
+			
+	    	
+			try{ 
+				while(true){
+					Groupe g= (Groupe)in.readObject();}
+				}
+			catch(IOException e){}
+			
+			}
+					
+		catch(IOException e){}
+			}
+	     
+	   
 	
 	
 }
