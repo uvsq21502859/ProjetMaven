@@ -81,7 +81,7 @@ public class Groupe extends Racine implements Serializable    {
 	    	
 			try{ 
 				while(true){
-					Groupe g= (Groupe)in.readObject();}
+					Racine g= (Racine)in.readObject();}
 				}
 			catch(IOException e){}
 			

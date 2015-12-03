@@ -116,11 +116,8 @@ public class Personnel extends Racine implements Serializable {
 	    	
 			try{ 
 				while(true){
-					String nom= (String)in.readObject();
-					String preon= (String)in.readObject();
-					java.time.LocalDateTime date= (java.time.LocalDateTime)in.readObject();
-					String fonct= (String)in.readObject();
-					String tel= (String)in.readObject();}
+					Personnel p= (Personnel)in.readObject();
+					p.afficher();}
 				}
 			catch(IOException e){}
 			

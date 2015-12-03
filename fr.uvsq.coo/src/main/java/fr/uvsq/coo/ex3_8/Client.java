@@ -9,7 +9,7 @@ public class Client {
 		// TODO Auto-generated method stub
 
 		
-		 Personnel perso = new Personnel.Builder("Nom","Prenom").build() ;
+		 Personnel perso = new Personnel.Builder("Nom","Prenom").telephone("").build() ;
 		 Personnel perso1 = new Personnel.Builder("N","P").build() ;
 		 //perso.afficher();
 		 
