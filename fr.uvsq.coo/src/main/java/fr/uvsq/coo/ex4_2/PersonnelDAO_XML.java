@@ -1,4 +1,4 @@
-package fr.uvsq.coo.ex3_8;
+package fr.uvsq.coo.ex4_2;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class PersonnelDAO extends DAO<Personnel> {
+public class PersonnelDAO_XML extends DAOXML<Personnel> {
 
 	@Override
 	public Personnel create(Personnel obj) {

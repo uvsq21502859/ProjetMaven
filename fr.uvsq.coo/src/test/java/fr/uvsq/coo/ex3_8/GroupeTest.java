@@ -19,8 +19,8 @@ public class GroupeTest {
 		@Test
 		public void ecrireObjet()  
 	      {
-			Personnel perso = new Personnel.Builder("Nom","Prenom").fonction("Etudiant").telephone("05568658652").build() ;
-			 Personnel perso1 = new Personnel.Builder("N","P").fonction("Etudiant").telephone("05568658652").build() ;
+			Personnel perso = new Personnel.Builder("","Nom","Prenom").fonction("Etudiant").telephone("05568658652").build() ;
+			 Personnel perso1 = new Personnel.Builder("","N","P").fonction("Etudiant").telephone("05568658652").build() ;
 			 Groupe g1=new Groupe("g1");
 			 Groupe g2 = new Groupe("groupe2");
 			 g1.add(perso);

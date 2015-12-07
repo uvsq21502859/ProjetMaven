@@ -9,8 +9,8 @@ public class Client {
 		// TODO Auto-generated method stub
 
 		
-		 Personnel perso = new Personnel.Builder("Nom","Prenom").telephone("").build() ;
-		 Personnel perso1 = new Personnel.Builder("N","P").build() ;
+		 Personnel perso = new Personnel.Builder("id","Nom","Prenom").telephone("").build() ;
+		 Personnel perso1 = new Personnel.Builder("id","N","P").build() ;
 		 //perso.afficher();
 		 
 		 Groupe g1 = new Groupe("groupe1");

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class GroupeDAO extends DAO<Groupe> {
+public class GroupeDAO_XML extends DAOXML<Groupe> {
 
 	@Override
 	public Groupe create(Groupe obj) {

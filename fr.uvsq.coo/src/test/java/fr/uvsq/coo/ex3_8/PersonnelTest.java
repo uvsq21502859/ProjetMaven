@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class PersonnelTest {
     
-	Personnel perso = new Personnel.Builder("Nom","Prenom").fonction("Etudiant").telephone("05568658652").build() ;
+	Personnel perso = new Personnel.Builder("","Nom","Prenom").fonction("Etudiant").telephone("05568658652").build() ;
 	@Test
     public void ecrireObjet()  
     {
