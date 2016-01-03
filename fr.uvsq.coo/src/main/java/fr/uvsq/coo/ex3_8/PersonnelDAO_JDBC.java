@@ -1,6 +1,5 @@
 package fr.uvsq.coo.ex3_8;
 
-import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,7 +10,7 @@ public class PersonnelDAO_JDBC extends DAOJDBC<Personnel>  {
 
 
 	
-	  static String dburl="jdbc:derby://localhost:1527/MonDB;create=true";
+	  static String dburl="jdbc:derby:MaDB";//create=true";
 		//Properties connectionProp = new Properties();
 		//connectionProp.put("user",  userName);
 		//connectionProp.put("user", password);
@@ -56,7 +55,8 @@ public class PersonnelDAO_JDBC extends DAOJDBC<Personnel>  {
 		//excution d'une requete de type selection
 		try(Connection cnn= DriverManager.getConnection(dburl, "user", "password")){
 			java.sql.Statement st =  cnn.createStatement();
-			ResultSet rs=((java.sql.Statement) st).executeQuery(req);
+			ResultSet rs= 
+					((java.sql.Statement) st).executeQuery(req);
 			return rs;}
 		catch(SQLException e){System.err.println(e);}
 		return null;
@@ -64,8 +64,8 @@ public class PersonnelDAO_JDBC extends DAOJDBC<Personnel>  {
 	
 	@Override
 	public Personnel create(Personnel obj) {
-		
-		String requete="INSERT INTO PERSONNEL VALUES ("+obj.getId()+","+obj.getNom()+","+obj.getPrenom()+","+obj.getDateNaissance()+","+obj.getFonction()+","+obj.getTelephone()+")";
+		String requete="INSERT INTO Personnel VALUES ('+obj.getId()+','+obj.getNom()+','+obj.getPrenom()+','200-02-02','+obj.getFonction()+','+obj.getTelephone()+')";
+		//String requete="INSERT INTO PERSONNEL VALUES ("+obj.getId()+","+obj.getNom()+","+obj.getPrenom()+","+obj.getDateNaissance()+","+obj.getFonction()+","+obj.getTelephone()+")";
 		int m=miseAjour(requete);
 		if(m>0)return obj;
 		
@@ -104,7 +104,7 @@ public class PersonnelDAO_JDBC extends DAOJDBC<Personnel>  {
 
 	@Override
 	public void delete(Personnel obj) {
-		String requete="DELETE FROM PERSONNEL WHERE Id like "+obj.getId()+"";
+		String requete="DELETE FROM PERSONNEL WHERE Id like '+obj.getId()+'";
 		int m=miseAjour(requete);}		
 		
 	

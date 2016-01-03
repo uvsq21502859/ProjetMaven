@@ -19,10 +19,10 @@ public class Personnel extends Racine implements Serializable {
 	
 	public String getId(){return this.nom;}
 	public String getNom(){return this.nom;}
-	public String getPrenom(){return this.nom;}
+	public String getPrenom(){return this.prenom;}
 	public java.time.LocalDateTime getDateNaissance(){return dateNaissance; }
-	public String getFonction(){return this.nom;}
-	public String getTelephone(){return this.nom;}
+	public String getFonction(){return this.fonction;}
+	public String getTelephone(){return this.telephone;}
     //debut builder
 	public static class Builder{
 		String id= new String();

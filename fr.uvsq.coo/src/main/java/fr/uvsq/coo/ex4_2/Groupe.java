@@ -2,7 +2,6 @@ package fr.uvsq.coo.ex4_2;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class Groupe extends Racine implements Serializable    {
