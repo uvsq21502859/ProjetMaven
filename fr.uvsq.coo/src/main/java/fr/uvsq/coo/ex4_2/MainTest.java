@@ -13,10 +13,10 @@ public class MainTest {
 		//String req="INSERT INTO PERSONNEL(ID,NOM) VALUES('1','nom')";
 		//PersonnelDAO_JDBC.miseAjour(req);
 		
-		String r="SELECT * FROM PERSONNEL";
+		String r="SELECT * FROM Personnel";
 		try{ ResultSet rs= PersonnelDAO_JDBC.selection(r);
 		while(rs.next()){
-			System.out.println(rs.getInt("ID"));
+			System.out.print(rs.getInt("ID")+"   ");
 			System.out.print(rs.getString("NOM"));}
 		}
 		catch(SQLException e){}
