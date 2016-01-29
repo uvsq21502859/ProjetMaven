@@ -9,7 +9,8 @@ public class MainTest {
 	private static final String PERSISTENCE_UNIT_NAME="Personnel";
 	private static EntityManagerFactory factory;
 	
-	public static void  main(String []args){
+
+	public static void  main(String [] args){
 		
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		
@@ -17,9 +18,9 @@ public class MainTest {
 		em.getTransaction().begin();
 		Personnel personnel = new Personnel();
 				
-		personnel.setId(2);
-		personnel.setNom("nom1");
-		personnel.setPrenom("prenom1");
+		//personnel.setId(2);
+		personnel.setNom("nom");
+		personnel.setPrenom("prenom");
 		
 		em.persist(personnel);
 		em.getTransaction().commit();
